@@ -12,7 +12,7 @@ import org.specs2.mutable._
  */
 class ApplicationSpec extends Specification {
   "The Application Controller" should {
-    "show the default index page" in {
+    "show the default index page when the user visits it" in {
       running(FakeApplication()) {
         val Some(result) = routeAndCall(FakeRequest(GET, "/"))
         status(result) must beEqualTo(OK)
