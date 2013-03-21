@@ -1,4 +1,3 @@
-import eu.henkelmann.sbt.JUnitXmlTestsListener
 import sbt._
 import Keys._
 import PlayProject._
@@ -22,10 +21,4 @@ object ApplicationBuild extends Build {
       parallelExecution in ScctPlugin.ScctTest := false,
       unmanagedResourceDirectories in ScctPlugin.ScctTest <+= baseDirectory( _ / "conf")
     )
-
-  lazy val plugins = Project("plugins", file("."))
-    .dependsOn(
-    uri("git://github.com/bseibel/sbt-simple-junit-xml-reporter-plugin.git")
-  )
-
 }
