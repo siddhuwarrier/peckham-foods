@@ -12,3 +12,7 @@ dist
 /.classpath
 /.project
 /RUNNING_PID
+lib
+*.iml
+.idea
+.idea_modules
