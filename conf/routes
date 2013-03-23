@@ -4,3 +4,6 @@
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
+
+GET     /api/products/top        controllers.api.ProductController.showTop
+GET     /api/v1/products/top        controllers.api.ProductController.showTop

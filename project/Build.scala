@@ -12,7 +12,8 @@ object ApplicationBuild extends Build {
       // Add your project dependencies here,
       "org.ccil.cowan.tagsoup" % "tagsoup" % "1.2.1" % "test",
       "org.mockito" % "mockito-all" % "1.9.5" % "test",
-      "org.scalatest" %% "scalatest" % "1.9.1" % "test"
+      "org.scalatest" %% "scalatest" % "1.9.1" % "test",
+      "postgresql" % "postgresql" % "9.1-901.jdbc4"
     )
 
     lazy val additionalSettings = Defaults.defaultSettings ++ seq(ScctPlugin.instrumentSettings : _*)
