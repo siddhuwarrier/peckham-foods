@@ -2,6 +2,8 @@ import sbt._
 import Keys._
 import PlayProject._
 import ScctPlugin._
+import ca.seibelnet.JUnitTestListener
+
 
 object ApplicationBuild extends Build {
 
@@ -21,7 +23,8 @@ object ApplicationBuild extends Build {
     val main = PlayProject(appName, appVersion, appDependencies, mainLang = SCALA, settings = additionalSettings).settings(
       parallelExecution in ScctPlugin.ScctTest := false,
       unmanagedResourceDirectories in ScctPlugin.ScctTest <+= baseDirectory( _ / "conf"),
-
+      testListeners += new JUnitTestListener("./target/test-reports/"),
+      ebeanEnabled := true,
       testOptions in Test := Nil //for scala test
     )
 }

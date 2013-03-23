@@ -14,3 +14,5 @@ resolvers += "scct-github-repository" at "http://mtkopone.github.com/scct/maven-
 addSbtPlugin("play" % "sbt-plugin" % "2.0.4")
 
 addSbtPlugin("reaktor" % "sbt-scct" % "0.2-SNAPSHOT")
+
+addSbtPlugin("ca.seibelnet" % "sbt-simple-junit-xml-reporter-plugin" % "0.2.0")
