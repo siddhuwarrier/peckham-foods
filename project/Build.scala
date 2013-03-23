@@ -19,9 +19,9 @@ object ApplicationBuild extends Build {
     lazy val additionalSettings = Defaults.defaultSettings ++ seq(ScctPlugin.instrumentSettings : _*)
 
     val main = PlayProject(appName, appVersion, appDependencies, mainLang = SCALA, settings = additionalSettings).settings(
-       // Add your own project settings here
       parallelExecution in ScctPlugin.ScctTest := false,
       unmanagedResourceDirectories in ScctPlugin.ScctTest <+= baseDirectory( _ / "conf"),
-      testOptions in Test := Nil
+
+      testOptions in Test := Nil //for scala test
     )
 }
