@@ -9,7 +9,7 @@ resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/release
 
 resolvers += "scct-github-repository" at "http://mtkopone.github.com/scct/maven-repo"
 
-resolvers += Resolver.file("Local Ivy Repository", file(Path.userHome.absolutePath+"/.ivy2/local"))(Resolver.ivyStylePatterns)
+resolvers += "Artifactory" at "http://artifacts.siddhuw.info:8081/artifactory/plugins-release-local/"
 
 
 // Use the Play sbt plugin for Play projects
