@@ -7,8 +7,6 @@
         <wholesalePrice currency="GBP">2.75</wholesalePrice>
         <image>http://img.tesco.com/Groceries/pi/007/0000010112007/IDShot_90x90.jpg</image>
     </product>
-
-
     <product xml:id="pid-268347110">
         <name>WestBun Organic Goodness Apples</name>
         <ean>10110713</ean>
@@ -16,8 +14,6 @@
         <wholesalePrice currency="GBP">2.32</wholesalePrice>
         <image>http://img.tesco.com/Groceries/pi/713/0000010110713/IDShot_90x90.jpg</image>
     </product>
-
-
     <product xml:id="pid-268939251">
         <name>Orchard Selection Pink Lady</name>
         <ean>10114483</ean>

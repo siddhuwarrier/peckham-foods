@@ -34,7 +34,7 @@ public class Product extends Model {
     /**
      * Finder method
      */
-    public static Finder<String, Product> find = new Finder<String, Product>(
+    public static Model.Finder<String, Product> find = new Model.Finder<String, Product>(
             String.class, Product.class
     );
 

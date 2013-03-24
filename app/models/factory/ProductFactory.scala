@@ -1,6 +1,6 @@
 package models.factory
 
-import xml.{MetaData, Elem}
+import xml.{Node, MetaData}
 import models.Product
 import java.util.Currency
 
@@ -11,7 +11,7 @@ object ProductFactory {
   val PRODUCT_CURRENCY_XML_ATTRIB = "@currency"
   val PRODUCT_WHOLESALE_PRICE_XML_ELEMENT = "wholesalePrice"
 
-  def build(productXml: Elem): Option[Product] = {
+  def build(productXml: Node): Option[Product] = {
     val getItem = getItemFromXml(productXml, _: String) //partially-applied functions FTW
 
     try {
@@ -38,7 +38,7 @@ object ProductFactory {
 
   }
 
-  private def getCurrencyCode(productXml: Elem): Option[String] = {
+  private def getCurrencyCode(productXml: Node): Option[String] = {
     val listPriceCurrency = (productXml \ PRODUCT_LIST_PRICE_XML_ELEMENT \ PRODUCT_CURRENCY_XML_ATTRIB).text
     val wholesalePriceCurrency = (productXml \ PRODUCT_WHOLESALE_PRICE_XML_ELEMENT \ PRODUCT_CURRENCY_XML_ATTRIB).text
 
@@ -50,8 +50,8 @@ object ProductFactory {
     }
   }
 
-  private def getItemFromXml(xmlElem: Elem, itemName: String): Option[String] = {
-    val itemNodeSeq = (xmlElem \ itemName)
+  private def getItemFromXml(xmlNode: Node, itemName: String): Option[String] = {
+    val itemNodeSeq = (xmlNode \ itemName)
     if (!itemNodeSeq.isEmpty) {
       Some(itemNodeSeq.text)
     }
