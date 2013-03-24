@@ -17,4 +17,4 @@ addSbtPlugin("play" % "sbt-plugin" % "2.1.0")
 
 addSbtPlugin("reaktor" % "sbt-scct" % "0.2-SNAPSHOT")
 
-addSbtPlugin("ca.seibelnet" % "sbt-simple-junit-xml-reporter-plugin_2.9.2_0.12" % "0.2.0")
+addSbtPlugin("ca.seibelnet" % "sbt-simple-junit-xml-reporter-plugin" % "0.2.0")
