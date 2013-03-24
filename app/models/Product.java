@@ -6,14 +6,13 @@ import play.db.ebean.Model;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.Currency;
 
-/**
- * Copyright (c) Cisco systems 2013. All rights reserved.
- * Date: 23/03/2013
- */
 @Entity
 @Table(name = "Product")
 public class Product extends Model {
+    public static final String DEFAULT_CURRENCY_CODE = "GBP";
+
     @Id
     public String productId;
 
@@ -29,6 +28,9 @@ public class Product extends Model {
     @Constraints.Required
     public Double wholesalePrice;
 
+    @Constraints.Required
+    public Currency currency;
+
     /**
      * Finder method
      */
@@ -43,5 +45,6 @@ public class Product extends Model {
 
         this.listPrice = listPrice;
         this.wholesalePrice = wholesalePrice;
+        this.currency = Currency.getInstance(DEFAULT_CURRENCY_CODE);
     }
 }

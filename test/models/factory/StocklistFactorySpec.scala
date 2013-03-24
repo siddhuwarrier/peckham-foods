@@ -3,10 +3,6 @@ package models.factory
 import org.scalatest.FunSpec
 import org.scalatest.matchers.ShouldMatchers
 
-/**
- * Copyright (c) Cisco systems 2013. All rights reserved.
- * Date: 23/03/2013
- */
 class StocklistFactorySpec extends FunSpec with ShouldMatchers {
 
   describe("The stock list factory") {

@@ -2,10 +2,6 @@ package builders
 
 import models.Product
 
-/**
- * Copyright (c) Cisco systems 2013. All rights reserved.
- * Date: 23/03/2013
- */
 object ProductBuilder {
   private val PRODUCT_ID = "pid-268542796"
   private val PRODUCT_NAME = ""

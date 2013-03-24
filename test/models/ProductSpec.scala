@@ -6,10 +6,6 @@ import builders.ProductBuilder
 import play.api.test.Helpers.running
 import play.api.test.FakeApplication
 
-/**
- * Copyright (c) Cisco systems 2013. All rights reserved.
- * Date: 23/03/2013
- */
 class ProductSpec extends FunSpec with ShouldMatchers {
 
   protected def fakeApp = FakeApplication(additionalConfiguration = Map(
