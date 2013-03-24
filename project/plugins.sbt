@@ -9,7 +9,7 @@ resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/release
 
 resolvers += "scct-github-repository" at "http://mtkopone.github.com/scct/maven-repo"
 
-resolvers += "Artifactory" at "http://artifacts.siddhuw.info:8081/artifactory/plugins-release-local/"
+resolvers += "Artifactory" at "http://artifacts.siddhuw.info/content/repositories/releases/"
 
 
 // Use the Play sbt plugin for Play projects
@@ -17,4 +17,4 @@ addSbtPlugin("play" % "sbt-plugin" % "2.1.0")
 
 addSbtPlugin("reaktor" % "sbt-scct" % "0.2-SNAPSHOT")
 
-addSbtPlugin("ca.seibelnet" % "sbt-simple-junit-xml-reporter-plugin" % "0.2.0")
+addSbtPlugin("ca.seibelnet" % "sbt-simple-junit-xml-reporter-plugin_2.9.2_0.12" % "0.2.0")
