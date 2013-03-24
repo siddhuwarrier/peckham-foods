@@ -53,7 +53,7 @@ object ProductController extends Controller {
     val products = Product.find.all.asScala
     val objectMapper = new ObjectMapper()
 
-    Ok(Json.toJson(products.map(product => objectMapper.writeValueAsString(product))))
+    Ok(Json.toJson(Map("products" -> products.map(product => objectMapper.writeValueAsString(product)))))
       .withHeaders(CONTENT_TYPE -> MimeTypes.JSON)
   }
 }

@@ -17,6 +17,7 @@ import scala.collection.JavaConverters._
 import play.api.http.HeaderNames
 import org.codehaus.jackson.map.ObjectMapper
 import org.codehaus.jackson.`type`.TypeReference
+import play.api.libs.json.Json
 
 class UploadProductsSpec extends FeatureSpec with ShouldMatchers with BeforeAndAfter {
 
@@ -42,8 +43,9 @@ class UploadProductsSpec extends FeatureSpec with ShouldMatchers with BeforeAndA
         result.header(HeaderNames.CONTENT_TYPE).get should be("application/json")
 
         val jsonObjectMapper = new ObjectMapper()
+        val json = Json.stringify((Json.parse(result.body) \ "products"))
         val productsJson: java.util.List[String] = jsonObjectMapper
-          .readValue(result.body, new TypeReference[java.util.List[String]]() {})
+          .readValue(json, new TypeReference[java.util.List[String]]() {})
         val products = productsJson.asScala
           .foldLeft(List[Product]())((products, productJson) =>
           jsonObjectMapper.readValue(productJson, classOf[Product]) :: products)
@@ -67,8 +69,9 @@ class UploadProductsSpec extends FeatureSpec with ShouldMatchers with BeforeAndA
         result.header(HeaderNames.CONTENT_TYPE).get should be("application/json")
 
         val jsonObjectMapper = new ObjectMapper()
+        val json = Json.stringify((Json.parse(result.body) \ "products"))
         val productsJson: java.util.List[String] = jsonObjectMapper
-          .readValue(result.body, new TypeReference[java.util.List[String]]() {})
+          .readValue(json, new TypeReference[java.util.List[String]]() {})
 
         productsJson.size() should equal(0)
       }
@@ -106,8 +109,9 @@ class UploadProductsSpec extends FeatureSpec with ShouldMatchers with BeforeAndA
         result.header(HeaderNames.CONTENT_TYPE).get should be("application/json")
 
         val jsonObjectMapper = new ObjectMapper()
+        val json = Json.stringify((Json.parse(result.body) \ "products"))
         val productsJson: java.util.List[String] = jsonObjectMapper
-          .readValue(result.body, new TypeReference[java.util.List[String]]() {})
+          .readValue(json, new TypeReference[java.util.List[String]]() {})
 
         productsJson.size() should equal(UploadProductsSpec.NUM_VALID_PRODUCTS_IN_INVALID_SAMPLE_STOCKLIST_FILE)
         Product.find.findRowCount() should equal (productsJson.size())
