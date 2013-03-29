@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<stocklist xmlns="http://data.westbun.co.uk/catalog/stocklist">
+    <product xml:id="pid-268542796">
+        <name>WestBun Organic Apple Bag Ht</name>
+        <ean>10112007</ean>
+        <listPrice currency="GBP">2.99</listPrice>
+        <wholesalePrice currency="GBP">2.75</wholesalePrice>
+        <image>http://img.tesco.com/Groceries/pi/007/0000010112007/IDShot_90x90.jpg</image>
+    </product>
+    <product xml:id="pid-268347110">
+        <name>WestBun Organic Goodness Apples</name>
+        <ean>10110713</ean>
+        <listPrice currency="GBP">2.49</listPrice>
+        <wholesalePrice currency="GBP">2.32</wholesalePrice>
+        <image>http://img.tesco.com/Groceries/pi/713/0000010110713/IDShot_90x90.jpg</image>
+    </product>
+    <product xml:id="pid-268939251">
+        <name>Orchard Selection Pink Lady</name>
+        <ean>10114483</ean>
+        <listPrice currency="GBP">2.35</listPrice>
+        <wholesalePrice currency="GBP">2.25</wholesalePrice>
+        <image>http://img.tesco.com/Groceries/pi/483/0000010114483/IDShot_90x90.jpg</image>
+    </product>
+</stocklist>
