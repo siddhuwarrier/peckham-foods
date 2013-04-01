@@ -56,4 +56,10 @@ object ProductController extends Controller {
     Ok(Json.toJson(Map("products" -> products.map(product => objectMapper.writeValueAsString(product)))))
       .withHeaders(CONTENT_TYPE -> MimeTypes.JSON)
   }
+
+  def showOne(productId: String) = Action {
+    val objectMapper = new ObjectMapper()
+
+    Ok(objectMapper.writeValueAsString(Product.find.byId(productId)))
+  }
 }

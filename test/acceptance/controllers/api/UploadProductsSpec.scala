@@ -23,7 +23,7 @@ class UploadProductsSpec extends FeatureSpec with ShouldMatchers with BeforeAndA
 
   protected def app = TestServer(acceptance.TEST_SERVER_PORT)
 
-  feature("Upload Catalogue data") {
+  feature("PF-16: Upload Catalogue data") {
     info("As a stockist at Peckham Foods")
     info("I want to upload my product catalogue")
     info("So that I can see what products I have for sale")
