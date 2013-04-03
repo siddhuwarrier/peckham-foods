@@ -10,7 +10,7 @@ import scala.collection.JavaConverters._
 import builders.ProductBuilder
 import play.api.test.TestServer
 import play.api.libs.ws.WS
-import loggers.TestLogger
+import org.codehaus.jackson.map.ObjectMapper
 
 /**
  * Copyright (c) Cisco systems 2013. All rights reserved.
@@ -34,7 +34,21 @@ class ViewProductSpec extends FeatureSpec with ShouldMatchers with BeforeAndAfte
 
         Then("I should see the stock item")
         result.status should be(OK)
-        TestLogger.debug(result.body)
+        val jsonObjectMapper = new ObjectMapper()
+        val productFromJson = jsonObjectMapper.readValue(result.body, classOf[Product])
+
+        productFromJson should equal (product)
+      }
+    }
+
+    scenario("PF-26: Should not display stock item with invalid product ID") {
+      running(app) {
+        Given("I have uploaded stock to the application")
+        val product = createSampleProduct()
+        When(" I choose to view a stock item that does not exist")
+        val result = await(WS.url(ViewProductSpec.VIEW_URL.format("non-existent-product-id")).get())
+        Then("I should see an error")
+        result.status should be(NOT_FOUND)
       }
     }
   }

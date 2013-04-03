@@ -60,6 +60,11 @@ object ProductController extends Controller {
   def showOne(productId: String) = Action {
     val objectMapper = new ObjectMapper()
 
-    Ok(objectMapper.writeValueAsString(Product.find.byId(productId)))
+    val product = Product.find.byId(productId)
+
+    product match {
+      case null => NotFound
+      case _ => Ok(objectMapper.writeValueAsString(product))
+    }
   }
 }
