@@ -6,3 +6,5 @@ PUT     /api/products/        controllers.api.ProductController.upload
 PUT     /api/v1/products/        controllers.api.ProductController.upload
 GET     /api/products/        controllers.api.ProductController.showAll
 GET     /api/v1/products/        controllers.api.ProductController.showAll
+GET     /api/products/:id        controllers.api.ProductController.showOne(id: String)
+GET     /api/v1/products/:id        controllers.api.ProductController.showOne(id: String)

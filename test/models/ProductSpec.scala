@@ -23,15 +23,36 @@ class ProductSpec extends FunSpec with ShouldMatchers {
         val productInDb = Product.find.byId(product.productId)
 
         productInDb should not be (null)
-        productInDb should equal(product)
+        productInDb should equal (product)
       }
     }
 
     it("should not be possible to find a product with an invalid product Id") {
       val nonExistentId = "non-existent-id"
       running(fakeApp) {
-        Product.find.byId(nonExistentId) should be (null)
+        Product.find.byId(nonExistentId) should be(null)
       }
+    }
+
+    it("should equal another product with the same product ID, name, ean, list price and wholesale price") {
+      val product = ProductBuilder.build
+      val anotherProduct = new Product(product.productId, product.productName, product.ean, product.listPrice, product.wholesalePrice)
+
+      anotherProduct should equal (product)
+    }
+
+    it("should not equal another product with the different product ID") {
+      val product = ProductBuilder.build
+      val anotherProduct = new Product("another", product.productName, product.ean, product.listPrice, product.wholesalePrice)
+
+      anotherProduct should not equal (product)
+    }
+
+    it("should not equal another product with the same product name") {
+      val product = ProductBuilder.build
+      val anotherProduct = new Product(product.productId, "evil", product.ean, product.listPrice, product.wholesalePrice)
+
+      anotherProduct should not equal (product)
     }
   }
 }
