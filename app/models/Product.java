@@ -1,5 +1,6 @@
 package models;
 
+import play.Logger;
 import play.data.validation.Constraints;
 import play.db.ebean.Model;
 
@@ -31,6 +32,8 @@ public class Product extends Model {
     @Constraints.Required
     public Currency currency;
 
+    private static Double EPSILON = 0.0001;
+
     /**
      * Finder method
      */
@@ -46,5 +49,23 @@ public class Product extends Model {
         this.listPrice = listPrice;
         this.wholesalePrice = wholesalePrice;
         this.currency = Currency.getInstance(DEFAULT_CURRENCY_CODE);
+    }
+
+    @Override
+    public boolean equals(Object another) {
+        boolean isEqual = false;
+        if (another instanceof Product) {
+            Product anotherProduct = (Product) another;
+
+            if (anotherProduct.productId.equals(productId) &&
+                    anotherProduct.productName.equals(productName) &&
+                    anotherProduct.ean.equals(ean) &&
+                    (anotherProduct.listPrice - listPrice) < EPSILON &&
+                    (anotherProduct.wholesalePrice - wholesalePrice) < EPSILON ) {
+                isEqual = true;
+            }
+        }
+
+        return isEqual;
     }
 }
