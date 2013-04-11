@@ -55,6 +55,7 @@ public class Product extends Model {
     public boolean equals(Object another) {
         boolean isEqual = false;
         if (another instanceof Product) {
+
             Product anotherProduct = (Product) another;
 
             if (anotherProduct.productId.equals(productId) &&
